@@ -1,6 +1,8 @@
 #include <stddef.h>
 #include <iostream>
 #include <vector>
+#include <stack>
+#include "tree.h"
 #include "list_node.h"
 
 using namespace std;
@@ -264,10 +266,40 @@ public:
 
     return -1;
   }
+
+  vector<int> inorderTraversal(TreeNode *root){
+    bool poped = false;
+    vector<int> result;
+    stack<TreeNode*> route;
+    TreeNode* current = root;
+    while(current != NULL){
+      if(current->left != NULL && !poped) {
+        route.push(current);
+        current = current->left;
+      }else{
+        result.push_back(current->val);
+        if(current->right == NULL){
+          if(route.size() == 0){
+            current = NULL;
+          } else {
+            current = route.top();
+            poped = false;
+          }
+        }else{
+          current = current->right;
+        }
+        route.pop();
+        poped = true;
+      }
+    }
+    return result;
+  }
 };
 
 int main( int argc, const char* argv[]){
+  int array[] = {1,2,3};
+  int init_array[3] = {1,2,3};
+  Tree *tree = new Tree(array,3);
   Solution sol;
-  vector<int> array {1};
-  cout << sol.binarySearch(array,1);
+  sol.inorderTraversal(tree->root);
 }
