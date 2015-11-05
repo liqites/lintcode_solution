@@ -1,5 +1,6 @@
 #include <stddef.h>
 #include <iostream>
+#include <vector>
 #include "list_node.h"
 
 using namespace std;
@@ -218,13 +219,55 @@ public:
     }
     return newListHead;
   }
+
+  int binarySearch(vector<int> &array, int target){
+    int length = array.size();
+
+    if (length < 1){
+      return -1;
+    }
+
+    if(length == 1){
+      if(array.at(length-1) == target){
+        return length-1;
+      }else{
+        return -1;
+      }
+    }
+
+    int start_index = 0;
+    int end_index = length - 1;
+    int middle = 0;
+    int sum = 0;
+    while(end_index - start_index > 1){
+      sum = start_index + end_index;
+      if(sum % 2 == 0){
+        middle = sum / 2 + 1;
+      }else{
+        middle = sum / 2;
+      }
+      if(array.at(middle) < target){
+        // upper half array
+        start_index = middle + 1;
+      }else{
+        // lower half array include array.at(middle)
+        end_index = middle;
+      }
+    }
+
+    if(array.at(start_index) == target){
+      return start_index;
+    }
+    if(array.at(end_index) == target){
+      return end_index;
+    }
+
+    return -1;
+  }
 };
 
 int main( int argc, const char* argv[]){
   Solution sol;
-  int a[] = {1,1,1,1,1};
-  int b[] = {9,8,8,8,8};
-  ListNode *l1 = sol.initializeLinkedList(a,5);
-  ListNode *l2 = sol.initializeLinkedList(b,5);
-  sol.iteratorLinkedList(sol.addList(l1,l2));
+  vector<int> array {1};
+  cout << sol.binarySearch(array,1);
 }

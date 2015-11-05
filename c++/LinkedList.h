@@ -10,7 +10,7 @@
 class LinkedList {
 public:
   ListNode *head;
-  void LinkedList(int number[],int size){
+  LinkedList(int number[],int size){
 
   };
   void print();
