@@ -4,6 +4,7 @@
 #include <stack>
 #include "tree.h"
 #include "list_node.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -288,8 +289,10 @@ public:
         }else{
           current = current->right;
         }
-        route.pop();
-        poped = true;
+        if(route.size() > 0) {
+          route.pop();
+          poped = true;
+        }
       }
     }
     return result;
@@ -297,9 +300,9 @@ public:
 };
 
 int main( int argc, const char* argv[]){
-  int array[] = {1,2,3};
-  int init_array[3] = {1,2,3};
-  Tree *tree = new Tree(array,3);
+  int a[3] = {1,2,3};
+  Tree *tree = new Tree(a,3);
   Solution sol;
-  sol.inorderTraversal(tree->root);
+  Utils utils;
+  utils.print_vector(sol.inorderTraversal(tree->root));
 }
