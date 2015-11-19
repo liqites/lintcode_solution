@@ -3,11 +3,10 @@
 //
 
 #include "solutions/solution.h"
+#include "types/tree.h"
 #include <iostream>
 
 int main( int argc, const char* argv[]){
   Solution solution;
-  string a = "11";
-  string b = "10";
-  cout << solution.addBinary(a,b);
+  bool res = solution.compareStrings("ABCDEFG","ACC");
 }

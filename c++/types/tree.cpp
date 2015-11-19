@@ -6,7 +6,8 @@
 
 Tree::Tree(int *array, int size) {
   int current;
-  TreeNode *root = NULL;
+  TreeNode *root;
+  this->root = root = NULL;
   for(int i = 0;i<size;i = i+2){
     current = i;
     if(this->root == NULL){

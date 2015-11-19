@@ -8,10 +8,10 @@ lintcode solution of C++ language
 * [x] Add Binary
 * [x] Add Two Numbers
 * [x] Binary Tree Inorder Traversal
-* [ ] Binary Tree Postorder Traversal
-* [ ] Binary Tree Preorder Traversal
-* [ ] Climbing Stairs
-* [ ] Compare Strings
+* [x] Binary Tree Postorder Traversal
+* [x] Binary Tree Preorder Traversal
+* [x] Climbing Stairs
+* [x] Compare Strings
 * [ ] Convert Sorted Array to Binary Search Tree With Minimal Height
 * [ ] Cosine Similarity
 * [ ] Count 1 in Binary

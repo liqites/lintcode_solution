@@ -11,6 +11,7 @@
 #include <vector>
 #include <string>
 #include <stack>
+#include <map>
 
 #endif //LEETCODE_SOLUTION_H
 
@@ -38,4 +39,17 @@ public:
 
   // Binary Tree Inorder Traversal
   vector<int> inorderTraversal(TreeNode *root);
+
+  // Binary Tree Postorder Traversal
+  vector<int> postorderTraversal(TreeNode *root);
+
+  // Binary Tree Preorder Traversal
+  vector<int> preorderTraversal(TreeNode *root);
+
+  // Climbings Stairs
+  int climbStairs(int n);
+  int calClimbed(int n,map<int,int> &solved);
+
+  // Compare Strings
+  bool compareStrings(string A, string B);
 };
